@@ -1,0 +1,266 @@
+/** VARIABLES **/
+/* Fonts */
+/* COLORS */
+/* TRANSITIONS */
+/** CUSTOM VARIABLES **/
+.container {
+  max-width: 1750px;
+  width: 100%;
+}
+
+.top_header {
+  line-height: 2.5rem;
+}
+
+.brand_logo img {
+  width: auto;
+  height: 60px;
+}
+
+.search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search-bar form input {
+  padding: 0;
+}
+
+.navbar__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar__nav__item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar__nav__item:hover .navbar__nav__item__dropdown {
+  display: block;
+}
+
+.navbar__nav__item__link {
+  padding: .5rem 1rem;
+}
+
+.navbar__nav__item__link:hover {
+  background: #656565;
+}
+
+.navbar__nav__item__dropdown {
+  display: none;
+  position: absolute;
+  background-color: #474747;
+  white-space: nowrap;
+  top: 100%;
+}
+
+.navbar__nav__item__dropdown__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar__nav__item__dropdown__item__link {
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.navbar__nav__item__dropdown__item__link:hover {
+  background: #656565;
+}
+
+.navbar__nav__item__dropdown__item__dropdown {
+  display: none;
+  position: absolute;
+  background-color: #474747;
+  white-space: nowrap;
+  left: 100%;
+}
+
+.navbar__nav__item__dropdown__item__dropdown__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.navbar__nav__item__dropdown__item__dropdown__item__link {
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+
+.navbar__nav__item__dropdown__item__dropdown__item__link:hover {
+  background: #656565;
+}
+
+.navbar__nav__item__dropdown__item:hover .navbar__nav__item__dropdown__item__dropdown {
+  display: block;
+}
+
+.bars {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 1.5s;
+  transition: all 1.5s;
+  overflow: hidden;
+}
+
+.bars__item {
+  background: #474747;
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.bars::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: #474747;
+  width: 100%;
+  height: 4px;
+}
+
+.bars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: #474747;
+  width: 100%;
+  height: 4px;
+}
+
+.bars:hover {
+  -webkit-transform: rotate(720deg);
+          transform: rotate(720deg);
+}
+
+.mobile-header {
+  -webkit-transition: all 600ms ease-out;
+  transition: all 600ms ease-out;
+  right: 0;
+  width: 0px;
+  overflow: hidden;
+  position: absolute;
+  height: 100vh;
+}
+
+.mobile-header ~ header {
+  -webkit-transition: margin-left 600ms ease-out;
+  transition: margin-left 600ms ease-out;
+}
+
+.mobile-header.active {
+  background-color: red;
+  width: 60%;
+}
+
+.mobile-header.active ~ header {
+  margin-left: -60%;
+}
+
+.auth_title {
+  position: relative;
+}
+
+.auth_title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 1px;
+}
+
+.login_btn {
+  position: relative;
+}
+
+.login_btn:after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #e6e6e6;
+  width: 50%;
+  height: 1px;
+}
+
+.box {
+  padding: 1rem;
+}
+
+.product--title {
+  font-size: 18px;
+  display: inline-block;
+}
+
+.product--img {
+  max-width: 450px;
+}
+
+.product--price {
+  color: #00923F;
+  font-size: 22px;
+}
+
+.product--stock {
+  font-size: 18px;
+}
+
+.product-list__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .70rem;
+}
+
+.product-list__row:nth-child(even) {
+  background-color: #d6d9e6;
+}
+
+.product-list__row__item {
+  width: 50%;
+}
+
+.product-list__row__item__title {
+  font-weight: 600;
+  width: 50%;
+}
+
+.quantity__item {
+  width: 35px;
+  height: 35px;
+}
+
+.quantity__input {
+  max-width: 55px;
+  height: 35px;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+  text-align: center;
+}
+
+.quantity__input::-webkit-outer-spin-button, .quantity__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add_basket {
+  font-size: 18px;
+}
+/*# sourceMappingURL=main.css.map */

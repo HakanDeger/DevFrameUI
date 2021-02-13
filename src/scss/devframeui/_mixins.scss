@@ -1,0 +1,135 @@
+/** MIXINS **/
+$breakpoint-sm: 576;
+$breakpoint-md: 768;
+$breakpoint-lg: 992;
+$breakpoint-xl: 1200;
+$grid__cols: 12;
+
+$map-util-props: ('': 0,
+'--sm': $breakpoint-sm,
+'--md': $breakpoint-md,
+'--lg': $breakpoint-lg,
+'--xl': $breakpoint-xl);
+
+$displays:(
+'none',
+'block',
+'inline-block',
+'flex');
+$justify-content:(
+'center',
+'flex-start',
+'flex-end',
+'space-between',
+'space-around'
+);
+
+
+
+@mixin media ($screensize) {
+
+    @if ($screensize == xlarge) {
+        @media only screen and (min-width: 1200px) { @content };
+    }
+
+    @if ($screensize == large) {
+        @media only screen and (min-width: 992px) { @content };
+    }
+
+    @if ($screensize == medium) {
+        @media only screen and (min-width: 768px) { @content };
+    }
+
+    @if ($screensize == small) {
+        @media only screen and (min-width: 576px) { @content };
+    }
+}
+@mixin flex-display($display, $align-items, $justify-content) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+@mixin create-mq($breakpoint) {
+    @if($breakpoint==0) {
+        @content;
+    }
+
+    @else {
+        @media screen and (min-width: $breakpoint *1px) {
+            @content;
+        }
+    }
+}
+@mixin create-utils($modifier, $breakpoint) {
+    @include create-mq($breakpoint) {
+        @for $i from 1 through 6 {
+            .mx#{$modifier}--#{$i} {
+                margin-left:#{$i*.50}rem;
+                margin-right:#{$i*.50}rem;
+            }
+            .my#{$modifier}--#{$i} {
+                margin-top:#{$i*.50}rem;
+                margin-bottom:#{$i*.50}rem;
+            }
+            .mt#{$modifier}--#{$i} {
+                margin-top:#{$i*.50}rem;
+            }
+            .mb#{$modifier}--#{$i} {
+                margin-bottom:#{$i*.50}rem;
+            }
+            .ml#{$modifier}--#{$i} {
+                margin-left:#{$i*.50}rem;
+            }
+            .mr#{$modifier}--#{$i} {
+                margin-right:#{$i*.50}rem;
+            }
+            .p#{$modifier}--#{$i} {
+                padding:#{$i*.50}rem;
+            }
+            .py#{$modifier}--#{$i} {
+                padding-top:#{$i*.50}rem 0;
+                padding-bottom:#{$i*.50}rem 0;
+            }
+            .px#{$modifier}--#{$i} {
+                padding-left:#{$i*.50}rem 0;
+                padding-right:#{$i*.50}rem 0;
+            }
+            .pt#{$modifier}--#{$i} {
+                padding-top:#{$i*.50}rem;
+            }
+            .pb#{$modifier}--#{$i} {
+                padding-bottom:#{$i*.50}rem;
+            }
+            .pl#{$modifier}--#{$i} {
+                padding-left:#{$i*.50}rem;
+            }
+            .pr#{$modifier}--#{$i} {
+                padding-right:#{$i*.50}rem;
+            }
+        }
+        @each $item in $displays {
+            .d#{$modifier}--#{$item}{
+                display:#{$item}!important;
+            }
+        }
+        @each $item in $justify-content {
+            .justify--content#{$modifier}--#{$item}{
+                justify-content:#{$item};
+            }
+        }
+    }
+}
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+    @include create-mq($breakpoint) {
+        @for $i from 1 through $grid-cols {
+            .col#{$modifier}--#{$i} {
+                flex-basis: (100 / ($grid-cols / $i)) * 1%;
+                max-width: (100 / ($grid-cols / $i)) * 1%;
+                position: relative;
+                width: 100%;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+        }
+    }
+}
